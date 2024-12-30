@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+--Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
+--Desaturated-Dark-Blue: hsl(214, 17%, 51%);
+--Grayish-Blue: hsl(212, 23%, 69%);
+--Light-Grayish-Blue: hsl(210, 46%, 95%);
+}
+
+body, html{
+    color: var(--Desaturated-Dark-Blue);
+    background: var(--Light-Grayish-Blue);
+    font-family: "Manrope", serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+main{
+    background-color:hsl(0, 0%, 100%);
+    max-width: 385px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    margin: 1.7rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+    z-index: 0;
+}
+
+.main-img{
+    overflow: hidden;
+}
+
+.main-img img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    transition: all 0.5s linear;
+}
+
+main .main-img:hover > img {
+    transform: scale(1.2);
+}
+
+.card-up {
+    padding: 2.5rem 2rem
+}
+
+.card-up h1 {
+    color: var(--Very-Dark-Grayish-Blue);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card-down {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 2rem 1.5rem 2rem;
+}
+
+.profile img {
+    max-width: 3rem;
+    border-radius: 50%;
+}
+
+.description h2 {
+    color: var(--Very-Dark-Grayish-Blue);
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    font-weight: 700;
+}
+
+#share-icon {
+    display: block;
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    width: auto;
+    background: var(--Light-Grayish-Blue);
+    padding: 0.5rem;
+    border-radius: 50%;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+
+.share-links {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    height: 0%;
+    overflow: hidden;
+    background: var(--Very-Dark-Grayish-Blue);
+    color: var(--Grayish-Blue);
+    z-index: 0;
+    transition: all 0.3s ease-in;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+.card-down.active .share-links {
+    height: auto;
+    padding: 1.5rem 2rem 1.75rem 2rem;
+}
+
+.share-links span {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+.share-links a:hover {
+    transform: scale(1.2);
+}
+
+@media (max-width: 350px) {
+    .profile {
+    gap: 0.5rem;
+    padding: 0 1.5rem 1rem 1.5rem;
+    }
+    .description h2 {
+    font-size: 0.8rem;
+    }
+    .share-links {
+    gap: 0.5rem;
+    }
+}
+
+@media (min-width: 850px) {
+    body {
+    font-size: 1rem;
+    }
+    main {
+    max-width: 800px;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    margin: 5rem;
+    }
+    .main-img img {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0.5rem;
+    }
+    .card-up{
+        padding: 2.5rem;
+    }
+    .card-up h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    }
+    .profile {
+        padding: 0 2.5rem 2rem 2.5rem;
+    }
+    .description h2 {
+    font-size: 1rem;
+    font-weight: 700; 
+    }
+    #share-icon {
+    bottom: 2rem;
+    right: 2.5rem;
+    padding: 0.75rem;
+    }
+    .card-down.active #share-icon {
+    background: var(--Very-Dark-Grayish-Blue);
+    box-shadow: none;
+    }
+    .share-links {
+    display: none;
+    position: absolute;
+    bottom: 5.5rem;
+    right: -5rem;
+    z-index: 2;
+    width: max-content;
+    height: max-content;
+    overflow: visible;
+    border-radius: 0.8rem;
+    }
+    .share-links::after {
+    position: absolute;
+    content: "";
+    bottom: -0.5rem;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: var(--Very-Dark-Grayish-Blue);
+    z-index: 3;
+    transform: rotate(45deg);
+    }
+    .card-down.active .share-links {
+    display: flex;
+    padding: 1rem 2.5rem;
+    }
+    }
